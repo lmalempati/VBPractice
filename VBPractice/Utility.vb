@@ -73,7 +73,19 @@ Module Utility
         MessageBox.Show(message)
     End Sub
 
-    '''
+    <Extension()>
+    Function GetWordCount(s As String) As Integer
+        '
+        Dim arrWords As String()
+        arrWords = s.Split(New String({" ", ",", "."}))
+        Return arrWords.Count
+    End Function
+
+    ''' <summary>
+    ''' Gives factorial of a given number..
+    ''' </summary>
+    ''' <param name="n"></param>
+    ''' <returns></returns>
     Function Factorial(n As ULong) As ULong
         If n > 1 Then
             Return n * Factorial(n - 1)

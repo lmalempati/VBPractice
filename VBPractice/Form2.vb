@@ -63,7 +63,7 @@ Public Class Form2
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Dim s As String = "Hi there fdsfsdfsdfsdfsdf"
-        's.ShowMessage()
+        'MessageBox.Show(s.GetWordCount())
 
         'MessageBox.Show(Factorial(15))
         'MessageBox.Show(Trim("fads   "))
