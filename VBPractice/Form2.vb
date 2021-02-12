@@ -62,10 +62,25 @@ Public Class Form2
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim emp As Employee = New Employee()
+        emp.sal = 10002
+        emp.ValidateSal(emp)
+
         'Dim s As String = "Hi there fdsfsdfsdfsdfsdf"
         'MessageBox.Show(s.GetWordCount())
 
         'MessageBox.Show(Factorial(15))
         'MessageBox.Show(Trim("fads   "))
+        Dim s As String = New String("ABCD0014AF11") 'test data
+        Dim b(-1) As Byte
+        s.TryHexToBytes(b)
+
+        Dim BackToHex As String = ""
+
+        For Each bt As Byte In b
+            'b.ToHe
+            BackToHex += bt.ToHex()
+        Next
+        ShowMessage(BackToHex)
     End Sub
 End Class

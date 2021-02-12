@@ -1,4 +1,7 @@
-﻿Public Class Utility
+﻿Imports System.Runtime.CompilerServices
+Imports System.Text
+Imports xCore
+Public Class Utility
 
 
     'added to return  the sum on two given numbers
@@ -27,4 +30,10 @@
         Next
         Return max
     End Function
+
+    Function isHex(value As String)
+        'Return xCore.IsHex(value)
+        Return RegularExpressions.Regex.IsMatch(value, "\A\b[0-9a-fA-F]+\b\Z")
+    End Function
+
 End Class

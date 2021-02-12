@@ -3,66 +3,12 @@ Imports System.Runtime.CompilerServices
 
 Module Utility
 
-    Interface IMyInterface
-        Sub Run()
-        Sub Play()
-        Function GetDate()
-    End Interface
-
     Function TrimString(str As String) As String
         'Dim reg As Regex
         'reg.Match(str, "")
         Return str.Trim()
     End Function
 
-    Class Employee
-        Implements IDisposable
-        Implements IMyInterface
-
-        Private disposedValue As Boolean
-
-        Function MyFunc() As Employee
-
-            Return Me
-        End Function
-
-        Protected Overridable Sub Dispose(disposing As Boolean)
-            If Not disposedValue Then
-                If disposing Then
-                    ' TODO: dispose managed state (managed objects)
-                End If
-
-                ' TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                ' TODO: set large fields to null
-                disposedValue = True
-            End If
-        End Sub
-
-        ' ' TODO: override finalizer only if 'Dispose(disposing As Boolean)' has code to free unmanaged resources
-        ' Protected Overrides Sub Finalize()
-        '     ' Do not change this code. Put cleanup code in 'Dispose(disposing As Boolean)' method
-        '     Dispose(disposing:=False)
-        '     MyBase.Finalize()
-        ' End Sub
-
-        Public Sub Dispose() Implements IDisposable.Dispose
-            ' Do not change this code. Put cleanup code in 'Dispose(disposing As Boolean)' method
-            Dispose(disposing:=True)
-            GC.SuppressFinalize(Me)
-        End Sub
-
-        Public Sub Run() Implements IMyInterface.Run
-            Throw New NotImplementedException()
-        End Sub
-
-        Public Sub Play() Implements IMyInterface.Play
-            Throw New NotImplementedException()
-        End Sub
-
-        Public Function GetDate() As Object Implements IMyInterface.GetDate
-            Throw New NotImplementedException()
-        End Function
-    End Class
     ''' <summary>
     ''' 
     ''' </summary>
@@ -80,6 +26,30 @@ Module Utility
         arrWords = s.Split(New String({" ", ",", "."}))
         Return arrWords.Count
     End Function
+
+    <Extension> Public Function TryHexToBytes(value As String, ByRef Result As Byte()) As Boolean
+        ' If value.TryRemoveHexWhitespace = False Then Return False
+        If value = "" Then Result = New Byte() {}
+        Dim MyLength As Integer = value.Length \ 2
+        ReDim Result(MyLength - 1)
+        For I As Integer = 0 To MyLength - 1
+            If Byte.TryParse(value.Substring(I * 2, 2), Globalization.NumberStyles.HexNumber, Nothing, Result(I)) = False Then Return False
+        Next
+        Return True
+    End Function
+
+    <Extension> Public Function ToHex(value As Byte) As String
+        Return BitConverter.ToString(New Byte() {value})
+    End Function
+
+    <Extension()> Public Function EmpValidateSal(emp As Object) As Employee
+        Dim MyEmp As Employee = TryCast(emp, Employee)
+        If MyEmp.sal > 10000 Then
+            MyEmp.sal = 10000
+        End If
+        Return MyEmp
+    End Function
+
 
     ''' <summary>
     ''' Gives factorial of a given number..
