@@ -1,7 +1,7 @@
 ﻿Imports System.Text.RegularExpressions
 Imports System.Runtime.CompilerServices
 
-Module Utility
+Public Module Utility
 
     Function TrimString(str As String) As String
         'Dim reg As Regex
@@ -62,5 +62,45 @@ Module Utility
         Else
             Return n
         End If
+    End Function
+End Module
+
+Public Module RegExpres
+    Function IsFleet() As Boolean
+        Dim PANs As List(Of String) = New List(Of String)
+        PANs.Add("5568432211445331")
+
+        For Each item In PANs
+
+            Dim First6Dig As String = Left(item, 6)
+            '553[2-3][3-8][0-1]|5560[8-9][3-9] 556[1-5][0-9][0-9]|
+            Dim reg As Regex = New Regex("553[2-3][3-8][0-1]|5560[8-9][3-9] 556[1-5][0-9][0-9]")
+            If reg.IsMatch(First6Dig.ToString()) Then
+                Return True
+            End If
+        Next
+
+        Return False
+    End Function
+
+    <Extension> Public Function HexToBytes(value As String) As Byte()
+        Dim MyValue As String = value.RemoveHexWhitespace
+        If MyValue = "" Then Return New Byte() {}
+        Dim MyLength As Integer = MyValue.Length \ 2
+        Dim MyResult(MyLength - 1) As Byte
+        For I As Integer = 0 To MyLength - 1
+            MyResult(I) = Convert.ToByte(MyValue.Substring(I * 2, 2), 16)
+        Next
+        Return MyResult
+    End Function
+
+    <Extension> Public Function RemoveHexWhitespace(Text As String) As String
+        Dim MyText As String = _RemoveHexWhitespace(Text)
+        If MyText.Length Mod 2 <> 0 Then Throw New ArgumentException("Hexadecimal value length must be even.", "Text")
+        Return MyText
+    End Function
+    Private Function _RemoveHexWhitespace(Text As String) As String
+        Dim MyText As String = Text.Replace("-", "").Replace(" ", "").Replace("<", "").Replace(">", "")
+        Return MyText
     End Function
 End Module

@@ -1,12 +1,12 @@
-﻿Module modEmployee
+﻿Public Module modEmployee
     Interface IMyInterface
         Sub Run()
         Sub Play()
-        Function GetDate()
+        Function GetDate() As Date
     End Interface
 
 
-    Class Employee
+    Public Class Employee
         Implements IDisposable
         Implements IMyInterface
 
@@ -62,8 +62,8 @@
             Throw New NotImplementedException()
         End Sub
 
-        Public Function GetDate() As Object Implements IMyInterface.GetDate
-            Throw New NotImplementedException()
+        Public Function GetDate() As Date Implements IMyInterface.GetDate
+            Return DateTime.Now
         End Function
     End Class
 
