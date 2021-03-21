@@ -7,6 +7,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBPractice", "ConsoleApp\VB
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VBPracticeForm", "VBPractice\VBPracticeForm.vbproj", "{DDE47FA1-0C71-4D54-877B-199AA3D5F3D9}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MyConsoleApp", "MyConsoleApp\MyConsoleApp.vbproj", "{630F3F18-C9BC-4949-B397-299F68CED420}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DDE47FA1-0C71-4D54-877B-199AA3D5F3D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDE47FA1-0C71-4D54-877B-199AA3D5F3D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDE47FA1-0C71-4D54-877B-199AA3D5F3D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{630F3F18-C9BC-4949-B397-299F68CED420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{630F3F18-C9BC-4949-B397-299F68CED420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{630F3F18-C9BC-4949-B397-299F68CED420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{630F3F18-C9BC-4949-B397-299F68CED420}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

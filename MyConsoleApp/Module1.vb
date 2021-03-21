@@ -1,0 +1,64 @@
+﻿Imports System.Reflection
+Module Module1
+
+    Sub Main()
+        'Dim xTag9F33 As String = "6028C8"
+        'HexToBytes(xTag9F33)
+        Dim input As String = ""
+        'Tag9F33ToPinCapability()
+        'While Input.ToLower <> "exit"
+        '    input = Console.ReadLine.Trim
+        '    If input <> "" AndAlso input.ToLower <> "exit" Then
+        '        'Console.WriteLine("Invalid inppu, try agaian.")
+        '        Is10didgitNumber(input)
+        '        'Continue While
+        '        input = ""
+        '    ElseIf input.ToLower = "exit" Then
+        '        Exit Sub
+        '    End If
+        'End While
+        'Dim per As Person = 
+        Dim emp As New Employee
+        Dim emp1 As New Employee
+        emp.Name = "TestName"
+        emp.EmpId = "1"
+
+        emp1.Name = "TestName"
+        emp1.EmpId = "2"
+
+        Static Dim per As Person = emp
+        per = emp1
+        Console.WriteLine(TryCast(per, Employee).EmpId)
+        '' reflection method
+        GetEmpMetaData()
+
+        Console.ReadLine()
+    End Sub
+
+    Sub GetEmpMetaData()
+        Dim ti As TypeInfo = GetType(Employee)
+        Dim PropInfo As PropertyInfo() = ti.GetProperties
+        For Each pi As PropertyInfo In PropInfo
+            Console.WriteLine("Property name:" & pi.Name)
+        Next
+
+        Dim FldInfo As FieldInfo() = ti.GetFields()
+        For Each fi As FieldInfo In FldInfo
+            Console.WriteLine("Field name:" & fi.Name)
+        Next
+
+    End Sub
+
+    Public Function Tag9F33ToPinCapability() As EnumPinCapability
+        Dim xTag9F33 As String = "6028C8"
+        Try
+            If xTag9F33 = "" Then Return EnumPinCapability.Unspecified
+            If (xTag9F33.HexToBytes(1) And 128) = 128 Then Return EnumPinCapability.PinCapable '128 = 10000000 - Plaintext PIN for offline ICC verification
+            If (xTag9F33.HexToBytes(1) And 64) = 64 Then Return EnumPinCapability.PinCapable '64 =    01000000 - Enciphered PIN for online verification
+            If (xTag9F33.HexToBytes(1) And 16) = 16 Then Return EnumPinCapability.PinCapable '16 =    00010000 - Enciphered PIN for offline verification
+            Return EnumPinCapability.NotPinCapable
+        Catch ex As Exception
+            Return EnumPinCapability.Unspecified
+        End Try
+    End Function
+End Module

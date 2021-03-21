@@ -3,7 +3,8 @@
 Public Class Form2
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles startAsyncButton.Click
         '
-
+        IsFleet()
+        Return ' to remove this code
 
         If WorkerBee.IsBusy <> True Then
             WorkerBee.RunWorkerAsync()
@@ -62,6 +63,10 @@ Public Class Form2
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        RegExpres.IsFleet()
+        Return
+
         Dim emp As Employee = New Employee()
         emp.sal = 10002
         emp.ValidateSal(emp)
@@ -82,5 +87,7 @@ Public Class Form2
             BackToHex += bt.ToHex()
         Next
         ShowMessage(BackToHex)
+        ShowMessage(Environment.MachineName & Environment.UserName & Environment.CurrentDirectory.ToString())
+
     End Sub
 End Class
