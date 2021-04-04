@@ -1,9 +1,11 @@
 ﻿Imports System.Reflection
+Imports System.Text
+
 Module Module1
 
     Sub Main()
-        'Dim xTag9F33 As String = "6028C8"
-        'HexToBytes(xTag9F33)
+        Dim xTag9F33 As String = "6028C8"
+        xTag9F33.HexToBytes()
         Dim input As String = ""
         'Tag9F33ToPinCapability()
         'While Input.ToLower <> "exit"
@@ -23,15 +25,30 @@ Module Module1
         emp.Name = "TestName"
         emp.EmpId = "1"
 
-        emp1.Name = "TestName"
-        emp1.EmpId = "2"
+        'emp1.Name = "TestName"
+        'emp1.EmpId = "2"
 
-        Static Dim per As Person = emp
-        per = emp1
-        Console.WriteLine(TryCast(per, Employee).EmpId)
+        'Static Dim per As Person = emp
+        'per = emp1
+        'Console.WriteLine(TryCast(per, Employee).EmpId)
         '' reflection method
-        GetEmpMetaData()
+        'GetEmpMetaData()
+        emp.Salary = 1000
+        emp.UpdateSalary(1000)
+        Console.WriteLine("now employee salary:" & emp.Salary.ToString)
 
+        FunctionParameters.TestFunctionAsParameter()
+        Dim s As String = "Agsdfgf"
+        Dim res = New List(Of Byte)
+        For Each ch As Char In s
+            res.Add(Convert.ToByte(ch))
+        Next
+
+        'BitArray ba = New BitArray(res)
+        ToHex(res.ToArray)
+        Console.WriteLine(Convert.ToByte(150))
+        Dim f As Formatting = New Formatting
+        f.SurroundingSub()
         Console.ReadLine()
     End Sub
 

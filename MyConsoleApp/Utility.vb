@@ -1,5 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 Imports System.Runtime.CompilerServices
+Imports System.Text
 
 Public Module Utility
 
@@ -38,8 +39,12 @@ Public Module Utility
         Return True
     End Function
 
-    <Extension> Public Function ToHex(value As Byte) As String
-        Return BitConverter.ToString(New Byte() {value})
+    <Extension> Public Function ToHex(value As Byte()) As String
+        Dim Hex As StringBuilder = New StringBuilder
+        For Each b As Byte In value
+            Hex.AppendFormat("{0:x2}", b)
+        Next
+        Return Hex.ToString
     End Function
 
     '<Extension()> Public Function EmpValidateSal(emp As Object) As Employee
@@ -64,6 +69,11 @@ Public Module Utility
         Dim MyText As String = _RemoveHexWhitespace(Text)
         If MyText.Length Mod 2 <> 0 Then Throw New ArgumentException("Hexadecimal value length must be even.", "Text")
         Return MyText
+    End Function
+
+    <Extension> Function UpdateSalary(e As Employee, increment As Double) As Double
+        e.Salary += increment
+        Return e.Salary
     End Function
     Private Function _RemoveHexWhitespace(Text As String) As String
         Dim MyText As String = Text.Replace("-", "").Replace(" ", "").Replace("<", "").Replace(">", "")
@@ -113,4 +123,18 @@ Public Module RegExpres
         Return False
     End Function
 
+End Module
+Public Module FunctionParameters
+
+    Sub TestFunctionAsParameter()
+        Dim st As String = "fasdfsd "
+        FunctionAsParameter(st, AddressOf TrimString)
+        Dim srBytes As String = "01"
+        'FunctionAsParameter(srBytes, AddressOf ToHex)
+    End Sub
+
+    Function FunctionAsParameter(s As String, Method As Func(Of String, String)) As String
+        Console.WriteLine(Method(s))
+        Return ""
+    End Function
 End Module

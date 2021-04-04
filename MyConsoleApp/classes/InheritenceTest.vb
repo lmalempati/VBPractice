@@ -11,6 +11,7 @@ Public Class Employee
     Public EmpId As String = ""
     Public Property Department As String
 
+    Public Property Salary As Double
     Function ReturnEmpDetails() As String
         Dim sb As StringBuilder = New StringBuilder()
         sb.Append("Name:" & Name)
@@ -19,4 +20,8 @@ Public Class Employee
 
         Return sb.ToString
     End Function
+
+    Sub SalaryUpdate()
+        UpdateSalary(1000)
+    End Sub
 End Class
