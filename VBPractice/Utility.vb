@@ -20,7 +20,7 @@ Public Module Utility
     End Sub
 
     <Extension()>
-    Function GetWordCount(s As String) As Integer
+    Public Function GetWordCount(s As String) As Integer
         '
         Dim arrWords As String()
         arrWords = s.Split(New String({" ", ",", "."}))
@@ -62,6 +62,37 @@ Public Module Utility
         Else
             Return n
         End If
+    End Function
+
+    Function SumOfTwoNumbers(a As Integer, b As Integer) As Integer
+
+        Return a + b
+    End Function
+
+    'Find max of given numbers
+    Function Findmax(first As Integer, second As Integer) As Integer
+        If first > second Then
+            Return first
+        Else
+            Return second
+        End If
+    End Function
+
+    Function FindMaxOfGivenNumbers(Nums() As Integer) As Integer
+        Dim max As Integer
+        max = Nums(0)
+
+        For Each item As String In Nums
+            If item > max Then
+                max = item
+            End If
+        Next
+        Return max
+    End Function
+
+    Function isHex(value As String)
+        'Return xCore.IsHex(value)
+        Return RegularExpressions.Regex.IsMatch(value, "\A\b[0-9a-fA-F]+\b\Z")
     End Function
 End Module
 
