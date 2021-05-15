@@ -1,4 +1,4 @@
-﻿Module modEmployee
+﻿Public Module modEmployee
     Interface IMyInterface
         Sub Run()
         Sub Play()
@@ -6,7 +6,7 @@
     End Interface
 
 
-    Class Employee
+    Public Class Employee
         Implements IDisposable
         Implements IMyInterface
 

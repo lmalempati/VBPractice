@@ -111,5 +111,11 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VBPractice\VBPractice.vbproj">
+      <Project>{dde47fa1-0c71-4d54-877b-199aa3d5f3d9}</Project>
+      <Name>VBPractice</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

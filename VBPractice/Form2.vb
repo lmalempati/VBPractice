@@ -82,5 +82,8 @@ Public Class Form2
             BackToHex += bt.ToHex()
         Next
         ShowMessage(BackToHex)
+
+        Dim str As String = "test teh test we want to be tested"
+        str.GetWordCount()
     End Sub
 End Class

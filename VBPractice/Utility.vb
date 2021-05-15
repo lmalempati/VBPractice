@@ -1,7 +1,7 @@
 ﻿Imports System.Text.RegularExpressions
 Imports System.Runtime.CompilerServices
 
-Module Utility
+Public Module Utility
 
     Function TrimString(str As String) As String
         'Dim reg As Regex
@@ -20,7 +20,7 @@ Module Utility
     End Sub
 
     <Extension()>
-    Function GetWordCount(s As String) As Integer
+    Public Function GetWordCount(s As String) As Integer
         '
         Dim arrWords As String()
         arrWords = s.Split(New String({" ", ",", "."}))
