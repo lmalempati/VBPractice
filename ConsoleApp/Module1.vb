@@ -78,10 +78,10 @@ Module Module1
         ' Output: 0 1 2 3 4 
     End Sub
 
-    Sub TestHehToBytes()
-        Dim xTag9F33 As String = "6028C8"
-        VBPracticeForm.RegExpres.HexToBytes(xTag9F33)
-    End Sub
+    'Sub TestHehToBytes()
+    '    Dim xTag9F33 As String = "6028C8"
+    '    VBPracticeForm.RegExpres.HexToBytes(xTag9F33)
+    'End Sub
 
     Class EMVTags
         Public Function Tag9F33ToPinCapability() As EnumPinCapability
