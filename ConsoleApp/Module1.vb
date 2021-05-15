@@ -2,7 +2,6 @@
 Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Text.RegularExpressions
-Imports VBPracticeForm
 
 Module Module1
 
@@ -33,11 +32,9 @@ Module Module1
 
         '' test enum iteration
         'Iterate()
-        TestHehToBytes()
         Dim et As EMVTags = New EMVTags()
         et.Tag9F33ToPinCapability()
         Console.ReadLine()
-
     End Sub
 
     Public Class Employee
