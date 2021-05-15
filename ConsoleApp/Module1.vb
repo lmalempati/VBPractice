@@ -2,6 +2,9 @@
 Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Text.RegularExpressions
+Imports Org.BouncyCastle.Crypto
+Imports Org.BouncyCastle.Crypto.Parameters
+Imports Org.BouncyCastle.OpenSsl
 
 Module Module1
 
@@ -30,10 +33,10 @@ Module Module1
         'Console.WriteLine(GetType(Double))
         'Console.WriteLine(GetType(Object))
 
-        '' test enum iteration
-        'Iterate()
-        Dim et As EMVTags = New EMVTags()
-        et.Tag9F33ToPinCapability()
+        Console.WriteLine(If(ut.isHex("AP"), "true - valid Hex string", "False - invalid Hex string"))
+        Dim b() As Byte = Encoding.UTF8.GetBytes("abcd")
+        Console.WriteLine(b.ToString())
+        Console.WriteLine(Encoding.UTF8.GetString(b))
         Console.ReadLine()
     End Sub
 
@@ -95,6 +98,5 @@ Module Module1
             'End Try
         End Function
     End Class
-
 
 End Module
