@@ -3,6 +3,14 @@ Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Text.RegularExpressions
 Imports VBPractice
+Imports Org.BouncyCastle.Crypto.Parameters
+Imports Org.BouncyCastle.OpenSsl
+Imports Org.BouncyCastle.Crypto.Parameters
+Imports Org.BouncyCastle.OpenSsl
+Imports Org.BouncyCastle.Crypto.Parameters
+Imports Org.BouncyCastle.OpenSsl
+Imports Org.BouncyCastle.Crypto.Parameters
+Imports Org.BouncyCastle.OpenSsl
 
 Module Module1
 
@@ -23,19 +31,19 @@ Module Module1
         ''Console.WriteLine(ut.FindMaxOfGivenNumbers({1001, 1, 5, 6, 100, 101, 300}))
 
         'Console.WriteLine(If(ut.isHex("AP"), "true - valid Hex string", "False - invalid Hex string"))
-        'Dim b() As Byte = Encoding.UTF8.GetBytes("abcd")
-        'Console.WriteLine(b.ToString())
-        'Console.WriteLine(Encoding.UTF8.GetString(b))
-        'Console.WriteLine(GetType(Integer))
-        'Console.WriteLine(GetType(Int16))
-        'Console.WriteLine(GetType(Double))
-        'Console.WriteLine(GetType(Object))
-
         '' test enum iteration
         'Iterate()
         TestHehToBytes()
         Dim et As EMVTags = New EMVTags()
         et.Tag9F33ToPinCapability()
+        'Console.WriteLine(GetType(Int16))
+        'Console.WriteLine(GetType(Double))
+        'Console.WriteLine(GetType(Object))
+
+        Console.WriteLine(If(ut.isHex("AP"), "true - valid Hex string", "False - invalid Hex string"))
+        Dim b() As Byte = Encoding.UTF8.GetBytes("abcd")
+        Console.WriteLine(b.ToString())
+        Console.WriteLine(Encoding.UTF8.GetString(b))
         Console.ReadLine()
         Dim str As String = New String("India has been suffering from COVID")
         str.GetWordCount
