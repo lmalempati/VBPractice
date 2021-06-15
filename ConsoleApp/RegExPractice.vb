@@ -13,6 +13,5 @@ Public Class RegExPractice
         Next
 
         Return True
-        End
     End Function
 End Class

@@ -1,9 +1,11 @@
 ﻿Imports System.Reflection
-Imports System.Text
-
+Imports VBPractice
+Imports System.Linq
 Module Module1
 
     Sub Main()
+        'LinqTest()
+        'Exit Sub
         Dim xTag9F33 As String = "6028C8"
         xTag9F33.HexToBytes()
         Dim input As String = ""
@@ -52,6 +54,32 @@ Module Module1
         Console.ReadLine()
     End Sub
 
+    Private Sub LinqTest()
+        Dim names() = {"lakshmi", "narayana", "Vivek", "Sathvik", "Santhi"}
+        names.EvenLengthNames
+        Dim rpt = Enumerable.Repeat("2", 20)
+        PrintCollection(rpt, "Print 2s")
+        Dim n = From i In names
+                Where i.Length <= 7
+                Order By i Descending
+                Select i
+        PrintCollection(n, "5 char names")
+        Dim newnames = names.Reshuflle
+        PrintCollection(newnames, "reshuffled names")
+        Dim cc = New CreditCard
+        If cc.LuhanCheck("7088869008268012235") Then Console.WriteLine("valid card")
+
+        Console.ReadLine()
+    End Sub
+
+    Private Sub PrintCollection(names As IEnumerable, heading As String)
+        Console.WriteLine("+++++++" + heading + "+++++++++")
+
+        For Each item In names
+            Console.WriteLine(item)
+        Next
+    End Sub
+
     Sub GetEmpMetaData()
         Dim ti As TypeInfo = GetType(Employee)
         Dim PropInfo As PropertyInfo() = ti.GetProperties
@@ -63,7 +91,6 @@ Module Module1
         For Each fi As FieldInfo In FldInfo
             Console.WriteLine("Field name:" & fi.Name)
         Next
-
     End Sub
 
     Public Function Tag9F33ToPinCapability() As EnumPinCapability
