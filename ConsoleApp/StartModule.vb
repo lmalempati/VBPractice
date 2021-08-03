@@ -2,7 +2,7 @@
 Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Text.RegularExpressions
-Module Module1
+Module StartModule
 
     Sub Main()
 
@@ -29,7 +29,8 @@ Module Module1
         'Console.WriteLine(GetType(Object))
 
         Dim b() As Byte = Encoding.UTF8.GetBytes("abcd")
-        Console.WriteLine(b.ToString())
+
+        'Console.WriteLine(b.ToString())
         Console.WriteLine(Encoding.UTF8.GetString(b))
         Console.ReadLine()
     End Sub

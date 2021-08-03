@@ -1,5 +1,10 @@
 ﻿Imports System.Text
 
+Public Class TestStat
+    Dim Test As String = ""
+
+End Class
+
 Public MustInherit Class Person
     Public Name As String = ""
     Public Address As String

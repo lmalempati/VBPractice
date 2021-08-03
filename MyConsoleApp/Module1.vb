@@ -1,11 +1,57 @@
 ﻿Imports System.Reflection
 Imports VBPractice
 Imports System.Linq
+Imports CarMaking
+Imports Newtonsoft.Json
 Module Module1
+
 
     Sub Main()
         'LinqTest()
         'Exit Sub
+        Dim json As String = "[
+    {
+      'xNACSProductCode': '001',
+      'xUnitOfMeasure': 'G',
+      'xQuantity': '01',
+	  'xUnitPrice': '21023',
+	  'xProductAmount':'1023'
+    },
+	{
+      'xNACSProductCode': '101',
+      'xUnitOfMeasure': 'G',
+      'xQuantity': '02',
+	  'xUnitPrice': '21023',
+	  'xProductAmount':'1023'
+    },
+		{
+      'xNACSProductCode': '400',
+      'xUnitOfMeasure': 'G',
+      'xQuantity': '03',
+	  'xUnitPrice': '21023',
+	  'xProductAmount':'1023'
+    }
+	]"
+
+        modSerialize.DeserializeJSONToNACSProducts(json)
+        'Dim list As List(Of NACSProductdtls) = modSerialize.DeserializeJSONToNACSProducts(json)
+        modSerialize.SerializeNACSProducts()
+        Exit Sub
+        Dim wd As String = "01"
+        Console.WriteLine(wd.GetEnumNameFromVal(Of Weekdays))
+        Exit Sub
+
+        Dim cbt As CarBaseTest = New CarBaseTest()
+        cbt.SetCar(2)
+        cbt.SetCar(1)
+        cbt.ValidateCar()
+        Console.ReadLine()
+        Exit Sub
+
+        Dim s1 As String = "fad safs a afd, ,afds ,afds,"
+        'Console.WriteLine(" ".ToCharArray()(0))
+        Dim i As Int16 = s1.GetWordCount(" ".ToCharArray()(0))
+        'Dim j As Int16 = s1.GetWordCount(' ')
         Dim xTag9F33 As String = "6028C8"
         xTag9F33.HexToBytes()
         Dim input As String = ""
@@ -49,8 +95,8 @@ Module Module1
         'BitArray ba = New BitArray(res)
         ToHex(res.ToArray)
         Console.WriteLine(Convert.ToByte(150))
-        Dim f As Formatting = New Formatting
-        f.SurroundingSub()
+        'Dim f As Formatting = New Formatting
+        'f.SurroundingSub()
         Console.ReadLine()
     End Sub
 

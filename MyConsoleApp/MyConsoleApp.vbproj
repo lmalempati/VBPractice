@@ -48,6 +48,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -106,8 +109,13 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CarMaking\CarMaking.vbproj">
+      <Project>{0a9cc223-8d23-40fb-881c-acff6b9991c5}</Project>
+      <Name>CarMaking</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConsoleApp\VBPractice.vbproj">
       <Project>{239a4c0a-9b55-4c00-bb6c-84ab09049a51}</Project>
       <Name>VBPractice</Name>

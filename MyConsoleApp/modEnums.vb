@@ -11,4 +11,10 @@
         PinCapable = 1
         NotPinCapable = 2
     End Enum
+
+    Enum Weekdays
+        Mon
+        Tue
+        Thu
+    End Enum
 End Module
