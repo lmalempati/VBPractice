@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -63,7 +66,11 @@
   <ItemGroup>
     <Compile Include="AbstractSample.cs" />
     <Compile Include="Algorithms.cs" />
+    <Compile Include="ArraysPractice.cs" />
     <Compile Include="AsynchrousProgram.cs" />
+    <Compile Include="ConcatenationofConsecutiveBinaryNumbers.cs" />
+    <Compile Include="JsonParser.cs" />
+    <Compile Include="LinkedList.cs" />
     <Compile Include="Collections.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="LambdaExpressions.cs" />
@@ -74,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -86,6 +94,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Jsons\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

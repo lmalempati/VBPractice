@@ -3,17 +3,19 @@ Imports System.Runtime.CompilerServices
 Imports System.Text
 Imports System.Linq
 
+Friend Class Test
+    Shared name As String
+End Class
 Public Class CreditCard
-    Function LuhanCheck(ByVal CardNum As String) As Boolean
+    Shared Function LuhanCheck(ByVal CardNum As String) As Boolean
         Dim result As String = ""
-        ' if ony bit shifted left number gets doubled
+        Dim myEnum As CharEnumerator = Nothing
+        ' if any bit shifted left number gets doubled
         ' << bitwise shift left iperator
         ' AND operator on numbers acts as bitwise AND.
         If CardNum.Select(Function(c, i) (AscW(c) - 48) << ((CardNum.Length - i - 1) And 1)).Sum(Function(n) (If(n > 9, n - 9, n))) Mod 10 = 0 Then Return True
-
-        'For Each i In a
-        '    result += i.ToString
-        'Next
+        ' CardNum.Select(Function(c, i) (AscW(c) - 48) << ((CardNum.Length - i - 1) And 1)) converts as 
+        'result - 70816812900162128014265
         Return False
     End Function
 End Class
@@ -142,7 +144,6 @@ Public Module RegExpres
 
 End Module
 Public Module FunctionParameters
-
     Sub TestFunctionAsParameter()
         Dim st As String = "fasdfsd "
         FunctionAsParameter(st, AddressOf TrimString)
