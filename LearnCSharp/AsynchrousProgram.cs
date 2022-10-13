@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LearnCSharp
 {
-    class AsynchrousProgram
+    public class AsynchrousProgram
     {
         public  async Task<int> AsynMethod1()
         {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Drawing;
 
 namespace LearnCSharp
@@ -13,6 +13,28 @@ namespace LearnCSharp
         public enum Color { Red, Green, Blue, yellow, purple }
         static void Main(string[] args)
         {
+            ConcatenationofConsecutiveBinaryNumbers binClass = new ConcatenationofConsecutiveBinaryNumbers();
+            //binClass.ConcatenationofBinaryNumbers(12);
+            StringBuilder sb = new StringBuilder();
+                sb.Append(binClass.PaddingRight("5"));
+            sb.Append(binClass.PaddingRight("xxxx"));
+            sb.Append(binClass.PaddingRight(""));
+            sb.Append(binClass.PaddingRight("__"));
+            sb.Append(binClass.PaddingRight("abcd"));
+
+            Console.WriteLine(sb.ToString());
+
+            Console.ReadLine();
+
+            //JsonParser parser = new JsonParser();
+            //parser.parseJsonArray();
+            return;
+
+            //Solution.ReadInput();
+            //return;
+
+            //ArraysPractice.ArrayGetUpperBound();
+            //return;
             //Console.WriteLine($"static field value: {staticFiled}");
             //var readStr = Console.ReadLine();
 
@@ -24,8 +46,8 @@ namespace LearnCSharp
             //    readStr = Console.ReadLine();
             //}
 
-            SerializationDemo.CallSerializeFunc();
-            return;
+            //SerializationDemo.CallSerializeFunc();
+            //return;
 
             AsynchrousProgram AP = new AsynchrousProgram();
             AP.callMethod();

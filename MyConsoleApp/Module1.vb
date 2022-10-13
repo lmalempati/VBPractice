@@ -8,7 +8,9 @@ Module Module1
 
     Sub Main()
         'LinqTest()
-        'Exit Sub
+        TestPadding()
+        'LuhnCheckTest()
+        Exit Sub
         Dim json As String = "[
     {
       'xNACSProductCode': '001',
@@ -112,9 +114,12 @@ Module Module1
         PrintCollection(n, "5 char names")
         Dim newnames = names.Reshuflle
         PrintCollection(newnames, "reshuffled names")
-        Dim cc = New CreditCard
-        If cc.LuhanCheck("7088869008268012235") Then Console.WriteLine("valid card")
+        Console.ReadLine()
+    End Sub
 
+    Private Sub LuhnCheckTest()
+        'If cc.LuhanCheck("7088869008268012235") Then Console.WriteLine("valid card")
+        Console.WriteLine(CreditCard.LuhanCheck("7088869008268012235"))
         Console.ReadLine()
     End Sub
 
@@ -150,5 +155,10 @@ Module Module1
         Catch ex As Exception
             Return EnumPinCapability.Unspecified
         End Try
+    End Function
+
+    Public Function TestPadding() As String
+        Dim s As String
+        Return "abc" & If(s Is Nothing, "", s).PadRight(10, "0"c)
     End Function
 End Module
